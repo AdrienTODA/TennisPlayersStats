@@ -1,0 +1,6 @@
+@TennisPlayersStats_HostAddress = http://localhost:5269
+
+GET {{TennisPlayersStats_HostAddress}}/tennisplayersstats/
+Accept: application/json
+
+###
