@@ -1,8 +1,16 @@
 using Newtonsoft.Json;
+using TennisPlayersStats.Models;
 
-namespace TennisPlayersStats;
+namespace TennisPlayersStats.Services;
 
-public class PlayerService(IConfiguration configuration)
+public interface IPlayerService
+{
+	Player GetPlayerById(int id);
+	List<Player> GetRankedPlayers();
+	StatsResult GetStats();
+}
+
+public class PlayerService(IConfiguration configuration) : IPlayerService
 {
 	private Root? _cachedPlayers;
 	private DateTime _cacheExpiration = DateTime.MinValue;
@@ -25,10 +33,30 @@ public class PlayerService(IConfiguration configuration)
         }
     }
 
+	public Player GetPlayerById(int id)
+	{
+		var players = LoadPlayers();
+		return players.Players.FirstOrDefault(p => p.Id == id);
+	}
+
 	public List<Player> GetRankedPlayers()
 	{
 		var players = LoadPlayers();
 		return players.Players.OrderBy(p => p.Data.Rank).ToList();
+	}
+
+	public StatsResult GetStats()
+	{
+		var bestCountry = GetCountryWithMostWins();
+		var averageBMI = GetAveragePlayersBMI();
+		var medianHeight = GetPlayersMedianHeight();
+
+		return new StatsResult
+		{
+			CountryWithMostWins = bestCountry,
+			PlayersAverageBMI = averageBMI,
+			PlayersMedianHeight = medianHeight
+		};
 	}
 
     public Country GetCountryWithMostWins()

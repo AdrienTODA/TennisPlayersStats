@@ -1,4 +1,4 @@
-namespace TennisPlayersStats;
+namespace TennisPlayersStats.Models;
 
 public class Player
 {
