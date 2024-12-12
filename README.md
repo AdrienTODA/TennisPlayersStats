@@ -18,7 +18,6 @@ Avant de lancer l'application, assurez-vous d'avoir installé les outils suivant
 	- https://localhost:5000/Players/getstats
 
 📝 Endpoints Disponibles
-Méthode			Endpoint					Description
-GET			/Players/getplayersbyrank			Retourne la liste des joueurs triés par rang.
-GET			/Players/{id}					Retourne les informations d'un joueur par ID.
-GET			/Players/getstats				Retourne les statistiques globales.
+Méthode : GET | Endpoint : /Players/getplayersbyrank | Description : Retourne la liste des joueurs triés par rang.
+Méthode : GET | Endpoint : /Players/{id} | Description : Retourne les informations d'un joueur par ID.
+Méthode : GET | Endpoint :/Players/getstats | Description : Retourne les statistiques globales.
