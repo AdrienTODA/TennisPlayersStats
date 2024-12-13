@@ -13,9 +13,9 @@ Avant de lancer l'application, assurez-vous d'avoir installé les outils suivant
 
 🧪 Tester l'API
 - Utilisez les url suivantes :
-	- https://localhost:5000/Players/getplayersbyrank
-	- https://localhost:5000/Players/52 (utilisez un id disponible dans le fichier json)
-	- https://localhost:5000/Players/getstats
+	- http://localhost:5000/Players/getplayersbyrank
+	- http://localhost:5000/Players/52 (utilisez un id disponible dans le fichier json)
+	- http://localhost:5000/Players/getstats
 
 📝 Endpoints Disponibles
 
